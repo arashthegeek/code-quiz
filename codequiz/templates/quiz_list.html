@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>لیست کوییزها</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>کوییزهای برنامه‌نویسی</h1>
+    <ul>
+        {% for quiz in quizzes %}
+        <li><a href="{% url 'quiz_detail' quiz.id %}">{{ quiz.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

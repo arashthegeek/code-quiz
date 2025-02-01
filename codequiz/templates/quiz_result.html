@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>نتایج کوییز</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>نتیجه شما</h1>
+    <p>امتیاز شما: {{ result.score }} از {{ result.quiz.questions.count }} سوال</p>
+    <a href="{% url 'quiz_list' %}">بازگشت به لیست کوییزها</a>
+</body>
+</html>

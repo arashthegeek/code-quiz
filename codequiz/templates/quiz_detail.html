@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ quiz.title }}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>{{ quiz.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+        <div>
+            <p>{{ question.question_text }}</p>
+            <input type="radio" name="question_{{ question.id }}" value="1"> {{ question.option_1 }}<br>
+            <input type="radio" name="question_{{ question.id }}" value="2"> {{ question.option_2 }}<br>
+            <input type="radio" name="question_{{ question.id }}" value="3"> {{ question.option_3 }}<br>
+            <input type="radio" name="question_{{ question.id }}" value="4"> {{ question.option_4 }}<br>
+        </div>
+        {% endfor %}
+        <button type="submit">ارسال پاسخ‌ها</button>
+    </form>
+</body>
+</html>
